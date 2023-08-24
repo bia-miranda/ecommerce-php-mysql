@@ -41,13 +41,13 @@
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="O que você está procurando?">
+          <input type="text" class="form-control" placeholder="O que você procura?">
         </div>
         <button type="submit" class="btn btn-default">Pesquisar</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
-        <li><span class="glyphicon gryphicon-log-in"></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"> Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
