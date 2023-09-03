@@ -12,6 +12,9 @@
 
     <!-- ESTILIZAÇÃO INTERNA -->
     <style type="text/css">
+      span{
+        font-family: helvetica ;
+      }
         .navbar{
             margin-bottom: 0;
             padding: 1rem;
@@ -20,35 +23,35 @@
     </style>
 </head>
 <body>
-  <?php include 'nav.php'; ?>
-  <?php include 'cabecalho.html'; ?>
+  <?php include 'nav.php';
+        include 'cabecalho.html';
+        include 'conexao.php';
+
+        $consulta = $con->query('select nm_produto, ds_capa, vl_preco from vw_produtos');
+   ?>
 
         <div class="container-fluid">
           <div class="row">
+           <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
             <div class="col-sm-3">
-              <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%">
-              <div><h1>Nome do produto</h1></div>
-              <div><h4>R$220,00</h4></div>
-            </div>
+              <img src="imagens/<?php echo $exibe['ds_capa']?>.jpg" class="img-responsive" style="width: 100%">
+              <div><h3><?php echo $exibe['nm_produto'];?></h3></div>
+              <div><h4>R$ <?php echo number_format($exibe['vl_preco'],2,',','.');?></h4></div>
 
-            <div class="col-sm-3">
-              <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%">
-              <div><h1>Nome do produto</h1></div>
-              <div><h4>R$220,00</h4></div>
-            </div>
+              <div class="text-center">
+                <button class="btn btn-lg btn-block btn-info">
+                  <span class="glyphicon glyphicon-info-sign"> Detalhes</span>
+                </button>
+              </div>
 
-            <div class="col-sm-3">
-              <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%">
-              <div><h1>Nome do produto</h1></div>
-              <div><h4>R$220,00</h4></div>
-            </div>
+              <div class="text-center" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                <button class="btn btn-lg btn-block btn-success">
+                  <span class="glyphicon glyphicon-usd"> Comprar</span>
+                </button>
+              </div>
 
-            <div class="col-sm-3">
-              <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%">
-              <div><h1>Nome do produto</h1></div>
-              <div><h4>R$220,00</h4></div>
             </div>
-
+         <?php } ?>
           </div>
         </div>
 
