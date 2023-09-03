@@ -12,6 +12,7 @@ default charset utf8;
 
 create table tbl_produtos(
 id_produto int primary key auto_increment,
+nm_produto varchar(50) not null,
 id_categoria int not null,
 ds_capa varchar(255) not null,
 vl_preco decimal(6,2) not null,
@@ -36,15 +37,15 @@ add column nm_produto varchar(50) not null after id_produto;
 describe tbl_produtos;
 
 insert into tbl_produtos
-values(default, 'Funko Pop! Naruto Uzumaki', 1, , 99.90, 98, 'Figura Colecionável Funko Pop: NARUTO RASENGAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'N'),
-(default, 'Funko Pop! Kakashi Hatake', 1, , 99.90, 98, 'Figura Colecionável Funko Pop: KAKASHI HATAKE Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'N'),
-(default, 'Funko Pop! Mulan', 4, , 79.90, 98, 'Figura Colecionável Funko Pop: MULAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
-(default, 'Funko Pop! Rachael Green', 5, , 69.80,35,'Figura Colecionável Funko Pop: RACHAEL GREEN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
-(default, 'Funko Pop! Monica Geller', 5, , 69.80,35,'Figura Colecionável Funko Pop: MONICA GELLER Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
-(default, 'Funko Pop! Doctor Strange', 4, , 109.80,35,'Figura Colecionável Funko Pop: DOCTOR STRANGE Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
-(default, 'Funko Pop! Iron Man', 4, ,109.80,35,'Figura Colecionável Funko Pop: IRON MAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'N'),
-(default, 'Funko Pop! Luffy', 4, ,109.80,35,'Figura Colecionável Funko Pop: IRON MAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
-(default, 'Funko Pop! Zoro', 4, ,109.80,35,'Figura Colecionável Funko Pop: IRON MAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S');
+values(default, 'Funko Pop! Naruto Uzumaki', 1, 'naruto', 99.90, 98, 'Figura Colecionável Funko Pop: NARUTO RASENGAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'N'),
+(default, 'Funko Pop! Kakashi Hatake', 1,'kakashi' , 99.90, 98, 'Figura Colecionável Funko Pop: KAKASHI HATAKE Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'N'),
+(default, 'Funko Pop! Mulan', 4, 'mulan', 79.90, 98, 'Figura Colecionável Funko Pop: MULAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
+(default, 'Funko Pop! Rachael Green', 5, 'rachael' , 69.80,35,'Figura Colecionável Funko Pop: RACHAEL GREEN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
+(default, 'Funko Pop! Monica Geller', 5, 'monica', 69.80,35,'Figura Colecionável Funko Pop: MONICA GELLER Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
+(default, 'Funko Pop! Doctor Strange', 3, 'doctor', 109.80,35,'Figura Colecionável Funko Pop: DOCTOR STRANGE Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
+(default, 'Funko Pop! Iron Man', 3, 'stark' ,109.80,35,'Figura Colecionável Funko Pop: IRON MAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'N'),
+(default, 'Funko Pop! Luffy', 2, 'luffy',109.80,35,'Figura Colecionável Funko Pop: IRON MAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S'),
+(default, 'Funko Pop! Zoro', 2, 'zoro' ,109.80,35,'Figura Colecionável Funko Pop: IRON MAN Tamanho Aproximado: 10 cm de altura Peso Aproximado: 0.200 Kg Fabricante: Funko Inc. Produto 100% Original', 'S');
 
 select * from tbl_produtos;
 
@@ -61,7 +62,26 @@ from tbl_produtos inner join tbl_categoria on tbl_produtos.id_categoria = tbl_ca
 
 select * from vw_produtos;
 
+select nm_produto, ds_capa, vl_preco from vw_produtos where ds_categoria = 'Naruto';
+
 /*CREATE USER 'root'@'localhost' identified with my_sql_native_password by '12345678';*/
 /*GRANT ALL PRIVILEGES ON db_ecommerce.* to 'admin'@'localhost' WITH GRANT OPTION; */
 
 drop database db_ecommerce;
+
+CREATE TABLE tbl_usuario(
+	id int primary key auto_increment,
+    nm_usuario varchar(80) not null,
+    ds_email varchar(80) not null,
+    ds_senha varchar(6) not null,
+    ds_status boolean not null,
+    ds_endereco varchar(80) not null,
+    ds_cidade varchar(30) not null,
+    no_cep char(9) not null
+)
+default charset utf8;
+
+insert into tbl_usuario
+values(default, 'Beatriz', 'beatriz@gmail.com', '123456', 1, 'Rua das Flores', 'Cajamar', '07790980'),
+(default, 'Gabriel', 'gabriel@gmail.com', '654321', 0, 'Rua dos Amores', 'Cajamar', '07790981'),
+(default, 'Mariana', 'mariana@gmail.com', '123456', 0, 'Rua das Pitangueiras', 'Lapa', '07790982');

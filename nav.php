@@ -34,7 +34,16 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"> Login</a></li>
+
+        <?php if(empty($_SESSION['id'])) { ?>
+                <li><a href="login.php"><span> Entrar</a></li>
+        <?php } else {           
+          $consulta_usuario = $con->query("select nm_usuario from tbl_usuario where id = $_SESSION[id] ");
+          $exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC); 
+        ?>
+            <li><a href="login.php"><span><?php echo $exibe_usuario['nm_usuario'];?> </a></li>
+            <li><a href="sair.php"><span>Sair<span> </a></li>
+        <?php } ?>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
