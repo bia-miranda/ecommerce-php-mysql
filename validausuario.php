@@ -13,8 +13,19 @@ $consulta = $con->query("select id, nm_usuario, ds_email, ds_senha, ds_status fr
 
 if($consulta->rowCount() == 1){
     $exibeUsuario = $consulta->fetch(PDO::FETCH_ASSOC); 
-    $_SESSION['id'] = $exibeUsuario['id'];
-    header('location:index.php'); 
+
+    if($exibeUsuario['ds_status'] == 0){
+        $_SESSION['id'] = $exibeUsuario['id'];
+        $_SESSION['Status'] = 0;
+        header('location:index.php'); 
+    }
+    else{
+        $_SESSION['id'] = $exibeUsuario['id'];
+        $_SESSION['Status'] = 1;
+        header('location:index.php'); 
+    }
+    
+   
 }
 else{
     header('location:erro.php');
