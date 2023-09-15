@@ -85,3 +85,9 @@ insert into tbl_usuario
 values(default, 'Beatriz', 'beatriz@gmail.com', '123456', 1, 'Rua das Flores', 'Cajamar', '07790980'),
 (default, 'Gabriel', 'gabriel@gmail.com', '654321', 0, 'Rua dos Amores', 'Cajamar', '07790981'),
 (default, 'Mariana', 'mariana@gmail.com', '123456', 0, 'Rua das Pitangueiras', 'Lapa', '07790982');
+
+select * from tbl_usuario;
+
+select * from tbl_produtos;
+
+select * from vw_produtos where nm_produto like 'naruto';

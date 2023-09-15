@@ -31,7 +31,7 @@
         include 'cabecalho.html';
         
 
-        $consulta = $con->query('select nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos');
+        $consulta = $con->query('select id_produto, nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos');
    ?>
 
         <div class="container-fluid">
@@ -54,9 +54,11 @@
                 <?php } ?>
                 
                 <div class="text-center" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
-                <button class="btn btn-lg btn-block btn-default">
-                  <span style="color: cadetblue;"> Detalhes</span>
-                </button>
+                  <a href="detalhes.php?id=<?php echo $exibe['id_produto']; ?>">
+                    <button class="btn btn-lg btn-block btn-default">
+                      <span style="color: cadetblue;"> Detalhes</span>
+                    </button>
+                  </a>
               </div>
                 
               </div>
