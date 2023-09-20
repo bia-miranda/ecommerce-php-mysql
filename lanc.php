@@ -23,14 +23,14 @@
     </style>
 </head>
 <body>
-  <?php include 'nav.php';
+  <?php 
+        session_start();
+        include 'nav.php';
         include 'cabecalho.html';
         include 'conexao.php';
 
-        $consulta = $con->query("select nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos where sg_lancamento = 'S';");
+        $consulta = $con->query("select  id_produto, nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos where sg_lancamento = 'S';");
 
-        $consultar = $con->query('select id_produto, nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos');
-        $exibir = $consultar->fetch(PDO::FETCH_ASSOC)
    ?>
 
         <div class="container-fluid">
@@ -53,7 +53,7 @@
                 <?php } ?>
                 
                 <div class="text-center" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
-                <a href="detalhes.php?id=<?php echo $exibir['id_produto']; ?>">
+                <a href="detalhes.php?id=<?php echo $exibe['id_produto']; ?>">
                     <button class="btn btn-lg btn-block btn-default">
                       <span style="color: cadetblue;"> Detalhes</span>
                     </button>
