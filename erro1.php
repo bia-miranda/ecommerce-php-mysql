@@ -1,4 +1,4 @@
-<   doctype html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -33,11 +33,7 @@
 		
 			<div class="col-sm-4 col-sm-offset-4 text-center">
 				
-				<h2>Email já em uso na Loja!!!</h2>
-				
-				<a href="formusuario.php" class="btn btn-block btn-info" role="button">Tentar Novamente</a>
-				
-				<a href="esquecisenha.php" class="btn btn-block btn-primary" role="button">Esqueci a senha</a>
+				<h2>Nenhum produto foi encontrado... :( </h2>
 				
 							
 			</div>
