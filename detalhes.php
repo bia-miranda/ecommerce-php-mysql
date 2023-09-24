@@ -57,7 +57,7 @@
 		 <div class="col-md-4 col-sm-offset-1">
 			 
 			 
-			 <img src="imagens/<?php echo $exibir['ds_capa']; ?>.jpg" class="img-responsive" style="width:100%;">
+			 <img src="imagens/<?php echo $exibir['ds_capa']; ?>" class="img-responsive" style="width:100%;">
 		
 				<div class="col-sm-4 col-sm-offset-1" style="margin-top: 10px;"><img src="https://placehold.it/900x640" class="img-responsive"></div>
 				<div class="col-sm-4 col-sm-offset-1" style="margin-top: 10px;"><img src="https://placehold.it/900x640" class="img-responsive"></div>

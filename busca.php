@@ -58,7 +58,7 @@ while ($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
 	
 	<div class="row" style="margin-top: 15px;">
 		
-		<div class="col-sm-1 col-sm-offset-1"> <img src="imagens/<?php echo $exibe['ds_capa']?>.jpg" class="img-responsive" style="width: 100%"></div>
+		<div class="col-sm-1 col-sm-offset-1"> <img src="imagens/<?php echo $exibe['ds_capa']?>" class="img-responsive" style="width: 100%"></div>
 		<div class="col-sm-5"><h4 style="padding-top:20px"><?php echo $exibe['nm_produto'] ?></h4></div>
 		<div class="col-sm-2"><h4 style="padding-top:20px">R$ <?php echo number_format($exibe['vl_preco'],2,',','.');?></h4></div>
 
