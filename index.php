@@ -44,9 +44,11 @@
 
               <div class="text-center">
               <?php if($exibe['qt_estoque']>0){ ?>
+                <a href="carrinho.php?id=<?php echo $exibe['id_produto']; ?>">
                     <button class="btn btn-lg btn-block btn-success">
                     <span> Comprar</span>
                     </button>
+              </a>
              <?php }  else{ ?>
                   <button class="btn btn-lg btn-block btn-danger" disabled  >
                   <span> Indisponível</span>

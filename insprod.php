@@ -1,7 +1,7 @@
 <?php
 
 include 'conexao.php';  // include com arquivo de conexao
-include 'recise-class.php';
+include 'resize-class.php';
 
 //variáveis que vão receber os dados do formulário que esta na pagina formProduto
 $cd_cat = $_POST['sltcat'];  // recebendo o valor do campo select, valor numérico
@@ -37,10 +37,10 @@ try {  // try para tentar inserir
 	$inserir= $con->query("insert into tbl_produtos(id_categoria, nm_produto, vl_preco, qt_estoque, ds_prod, ds_capa, sg_lancamento) values ('$cd_cat', '$nome_prod', '$preco', '$qtde', '$descricao', '$img_nome1', '$lanc')");
 	
     
-move_uploaded_file($recebe_foto1['tmp_name'], $destino.$img_nome1);             
-$resizeObj = new resize($destino.$img_nome1);
-$resizeObj -> resizeImage(1000, 1000, 'crop');
-$resizeObj -> saveImage($destino.$img_nome1, 100);
+    move_uploaded_file($recebe_foto1['tmp_name'], $destino.$img_nome1);             
+    $resizeObj = new resize($destino.$img_nome1);
+    $resizeObj -> resizeImage(1000, 1000, 'crop');
+    $resizeObj -> saveImage($destino.$img_nome1, 100);
 
 header('location:index.php');
 	
