@@ -18,7 +18,7 @@
 	session_start(); // iniciando sessão
 	
 	// verificando se usuário está logado
-	if(empty($_SESSION['cd'])){
+	if(empty($_SESSION['id'])){
 	    header('location:login.php'); // enviando para login.php
     }
 	
@@ -27,10 +27,10 @@
 	include 'cabecalho.html'; // incluindo cabeçalho
 	
 	// verificando se o codigo do produto NÃO está vazio
-	if (!empty($_GET['cd'])) {
+	if (!empty($_GET['id'])) {
 	
 	// inserindo o código do produto na variável $cd_prod
-	$cd_prod=$_GET['cd'];
+	$id_prod=$_GET['id'];
 	
 	// se a sessão carrinho não estiver preenchida(setada)
 	if (!isset($_SESSION['carrinho'])) {
@@ -40,15 +40,15 @@
 
 	
 	// se a variavel $cd_prod não estiver setado(preenchida)
-	if (!isset($_SESSION['carrinho'][$cd_prod])) {
+	if (!isset($_SESSION['carrinho'][$id_prod])) {
 		
 		// será adicionado um produto ao carrinho
-		$_SESSION['carrinho'][$cd_prod]=1;
+		$_SESSION['carrinho'][$id_prod]=1;
 	}
 	
 	// caso contrario, se ela estiver setada, adicione novos produtos
 	else {
-		  $_SESSION['carrinho'][$cd_prod]+=1;
+		  $_SESSION['carrinho'][$id_prod]+=1;
 
 	}
 		// incluindo o arquivo 'mostraCarrinho.php'
@@ -76,12 +76,8 @@
 	</div>
 
 	
-</div>
-	
-	
-	<?php
-	include 'rodape.html';
-	?>
+</div>	
+	<?php include 'rodape.html'; ?>
 	
 </body>
 </html>

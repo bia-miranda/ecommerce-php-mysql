@@ -22,9 +22,10 @@
 <body>
   <?php 
   session_start();
-  include 'nav.php';
-        include 'cabecalho.html';
         include 'conexao.php';
+        include 'nav.php';
+        include 'cabecalho.html';
+       
 
         $cat = $_GET['cat'];
 

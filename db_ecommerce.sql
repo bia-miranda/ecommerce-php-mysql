@@ -133,6 +133,22 @@ select * from tbl_produtos;
         select ds_capa from tbl_produtos where id_produto=1;
     
     
+    create table tbl_venda(
+    id_venda int(11) primary key auto_increment,
+    no_ticket varchar(13) not null,
+    id_cliente int(11) not null,
+    id_produto int(11) not null,
+    qt_itens int(11) not null,
+    vl_item decimal(10,2) not null,
+    vl_total_item decimal(10,2) generated always as ((qt_itens * vl_item)) virtual,
+    dt_venda date not null
+    );
     
+    insert into tbl_venda(no_ticket, id_cliente, id_produto, qt_itens, vl_item, dt_venda)
+    values(12345678910, 2, 2, 2, 52.90, '2023-10-01');
+    
+    select * from tbl_venda;
+    
+    drop table tbl_venda;
 
 

@@ -25,11 +25,12 @@
 <body>
   <?php 
         session_start();
+        include 'conexao.php';
         include 'nav.php';
         include 'cabecalho.html';
-        include 'conexao.php';
+        
 
-        $consulta = $con->query("select  id_produto, nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos where sg_lancamento = 'S';");
+        $consulta = $con->query("select id_produto, nm_produto, ds_capa, vl_preco, qt_estoque from vw_produtos where sg_lancamento = 'S';");
 
    ?>
 

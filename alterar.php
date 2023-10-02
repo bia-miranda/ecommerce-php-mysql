@@ -4,7 +4,7 @@ include 'resize-class.php'; // classe para redimensionar imagem
 
 if (isset($_GET['cd_altera'])) {
     $id_produto = $_GET['cd_altera'];
-    $consulta = $con->prepare("SELECT ds_capa FROM tbl_produtos WHERE id_produto = :id_produto");
+    $consulta = $con->prepare("SELECT img_produto FROM tbl_produto WHERE id_produto = :id_produto");
     $consulta->bindParam(':id_produto', $id_produto, PDO::PARAM_INT);
     $consulta->execute();
     $exibe = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -35,20 +35,20 @@ if (isset($_POST['sltcat'], $_POST['txtprod'], $_POST['txtpreco'], $_POST['txtde
         $img_nome1 = md5(uniqid(time())) . "." . $extensao1[1];
         $upload_foto1 = 1;
     } else {
-        $img_nome1 = $exibe['ds_capa'];
+        $img_nome1 = $exibe['img_produto'];
         $upload_foto1 = 0;
     }
 
     try {
-        $alterar = $con->prepare("UPDATE tbl_produtos SET  
+        $alterar = $cn->prepare("UPDATE tbl_produtos SET  
         id_categoria = :categoria,
         nm_produto = :produto,
         vl_preco = :preco,
         qt_estoque = :qtde,
-        ds_prod = :descricao,
-        ds_capa = :img_nome1,
-        sg_lancamento = :lanc
-        WHERE id_produto = :id_produto");
+        descrição = :descricao,
+        img_produto = :img_nome1,
+        sg_lançamento = :lanc
+        WHERE cd_produto = :id_produto");
 
         $alterar->bindParam(':categoria', $categoria, PDO::PARAM_INT);
         $alterar->bindParam(':produto', $produto, PDO::PARAM_STR);

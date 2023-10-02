@@ -11,11 +11,11 @@
 
     // criando um loop para sessão carrinho recebe o $cd e a quantidade
     foreach ($_SESSION['carrinho'] as $id => $qnt)  {
-    $consulta = $con->query("SELECT * FROM tbl_produtos WHERE id_produto='$id'");
+    $consulta = $con->query("select * from tbl_produtos where id_produto='$id'");
     $exibe = $consulta->fetch(PDO::FETCH_ASSOC);
 	
 
-    $livro = $exibe['nm_produto'];  // variável que recebe o livro
+    $produto = $exibe['nm_produto'];  // variável que recebe o produto
     $preco = number_format(($exibe['vl_preco']),2,',','.'); // variável que recebe o preço
     $total += $exibe['vl_preco'] * $qnt; // variável que recebe preço * quantidade
 	
@@ -30,7 +30,7 @@
 		
 		
 		<div class="col-sm-4">
-			<h4 style="padding-top:20px"><?php echo $livro; ?></h4>
+			<h4 style="padding-top:20px"><?php echo $produto; ?></h4>
 		</div>	
 		
 		
@@ -44,7 +44,7 @@
 		<div class="col-sm-1 col-xs-offset-right-1" style="padding-top:20px">
 		
 		<!--remove o item do carrinho pelo id -->
-		<a href="removeCarrinho.php?cd=<?php echo $cd;?>">	
+		<a href="removeCarrinho.php?id=<?php echo $id;?>">	
 		<button class="btn btn-lg btn-block btn-danger">
 		<span class="glyphicon glyphicon-remove"></span>		
 		</button>
