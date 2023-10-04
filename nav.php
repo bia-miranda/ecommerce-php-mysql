@@ -47,16 +47,17 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Contato</a></li>
+        <li><a href="carrinho.php">Carrinho</a></li>
 
         <?php if(empty($_SESSION['id'])) { ?>
                 <li><a href="login.php"><span> Entrar</a></li>
         <?php } else {       
                      if($_SESSION['Status'] == 0) {   
                       
-                    $consulta_usuario = $con->query("select nm_usuario from tbl_usuario where id = $_SESSION[id] ");
+                    $consulta_usuario = $con->query("select nm_usuario from tbl_usuario where id = $_SESSION[id]");
                     $exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);?>
 
-                      <li><a href="login.php"><span><?php echo $exibe_usuario['nm_usuario'];?> </a></li>
+                      <li><a href="areaUser.php"><span><?php echo $exibe_usuario['nm_usuario'];?> </a></li>
                       <li><a href="sair.php"><span>Sair<span> </a></li>
                       <?php } else { ?>
                             <li><a href="admin.php"><button class="btn btn-sm btn-danger">Administrador</button> </a></li>

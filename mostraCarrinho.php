@@ -9,6 +9,11 @@
 	
 	$total = null; // variavel total que recebe valor nulo
 
+	if(!isset($_SESSION['carrinho'])){
+
+		$_SESSION['carrinho'] = array();
+	}
+
     // criando um loop para sessão carrinho recebe o $cd e a quantidade
     foreach ($_SESSION['carrinho'] as $id => $qnt)  {
     $consulta = $con->query("select * from tbl_produtos where id_produto='$id'");
