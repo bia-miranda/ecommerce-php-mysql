@@ -2,41 +2,21 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Minha Loja - Logon de usuário</title>
+<title>Nerd Figurw</title>
 	
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 <script src="jquery.mask.js"></script>
 
-<script>
-	
-	
-	
-$(document).ready(function(){
-	
-$('#preco').mask('000.000.000.000.000,00', {reverse: true});
-	
-});
-	
+<script>	
+	$(document).ready(function(){
+		
+	$('#preco').mask('000.000.000.000.000,00', {reverse: true});
+		
+	});	
 </script>
-	
-<style>
-
-.navbar{
-	margin-bottom: 0;
-}
-	
-	
-</style>	
-	
 </head>
 
 <body>
@@ -52,7 +32,6 @@ $('#preco').mask('000.000.000.000.000,00', {reverse: true});
 
 	include 'conexao.php';	
 	include 'nav.php';
-	include 'cabecalho.html';
 
     $consultaBea = $con-> query("select * from tbl_categoria");
 	
@@ -60,13 +39,9 @@ $('#preco').mask('000.000.000.000.000,00', {reverse: true});
 	
 	
 	<div class="container-fluid">
-	
 		<div class="row">
-		
 			<div class="col-sm-4 col-sm-offset-4">
-				
 				<h2>Cadastrar produto</h2>
-				
 				<form method="post" action="insprod.php" name="incluiProd" enctype="multipart/form-data">
 				
 					
@@ -128,9 +103,6 @@ $('#preco').mask('000.000.000.000.000,00', {reverse: true});
 	</div>
 	
 	<?php include 'rodape.html' ?>
-	
-	
-	
 	
 </body>
 </html>

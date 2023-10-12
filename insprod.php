@@ -24,7 +24,7 @@ $destino = "imagens/";  // informando para qual diretorio será enviado a imagem
 //gerando nome aleatorio para imagem
 // preg_match vai pegar imagens nas extensões jpg|jpeg|png|gif
 // do nome que esta na variavel $recebe_foto1 do parametro name e a $extensão vai receber o formato
-preg_match("/\.(jpg|jpeg|png|gif){1}$/i", $recebe_foto1['name'] ,$extencao1);
+preg_match("/\.(jpg|jpeg|png|gif){1}$/", $recebe_foto1['name'] ,$extencao1);
 
 // a função md5 vai gerar um valor randomico  com base no horario "time"
 // incrementar o ponto e a extensão

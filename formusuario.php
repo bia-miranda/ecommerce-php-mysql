@@ -42,8 +42,6 @@ $(document).ready(function(){
 	
 	include 'conexao.php';	
 	include 'nav.php';
-	include 'cabecalho.html';
-	
 	?>
 	
 	

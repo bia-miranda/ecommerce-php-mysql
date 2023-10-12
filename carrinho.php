@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
 <meta charset="utf-8">
-<title>Minha Loja</title>
+<title>Nerd Figure</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,54 +13,48 @@
 
 <body>	
 	
-	<?php
-	
-	session_start(); // iniciando sessão
-	
-	// verificando se usuário está logado
-	if(empty($_SESSION['id'])){
-	    header('location:login.php'); // enviando para login.php
-    }
-	
-	include 'conexao.php';	// incluindo arquivo de conexão
-	include 'nav.php'; // incluindo arquivo barra de navegação
-	include 'cabecalho.html'; // incluindo cabeçalho
-	
-	// verificando se o codigo do produto NÃO está vazio
-	if (!empty($_GET['id'])) {
-	
-	// inserindo o código do produto na variável $cd_prod
-	$id_prod=$_GET['id'];
-	
-	// se a sessão carrinho não estiver preenchida(setada)
-	if (!isset($_SESSION['carrinho'])) {
-		  // será criado uma sessão chamado carrinho para receber um vetor
-		  $_SESSION['carrinho'] = array();
-	}
+	<?php	
+		session_start(); // iniciando sessão
+		
+		// verificando se usuário está logado
+		if(empty($_SESSION['id'])){
+			header('location:login.php'); // enviando para login.php
+		}
+		
+		include 'conexao.php';	// incluindo arquivo de conexão
+		include 'nav.php'; // incluindo arquivo barra de navegação
+		
+		// verificando se o codigo do produto NÃO está vazio
+		if (!empty($_GET['id'])) {
+		
+		// inserindo o código do produto na variável $cd_prod
+		$id_prod=$_GET['id'];
+		
+		// se a sessão carrinho não estiver preenchida(setada)
+		if (!isset($_SESSION['carrinho'])) {
+			// será criado uma sessão chamado carrinho para receber um vetor
+			$_SESSION['carrinho'] = array();
+		}
 
-	
-	// se a variavel $cd_prod não estiver setado(preenchida)
-	if (!isset($_SESSION['carrinho'][$id_prod])) {
+		// se a variavel $cd_prod não estiver setado(preenchida)
+		if (!isset($_SESSION['carrinho'][$id_prod])) {
+			
+			// será adicionado um produto ao carrinho
+			$_SESSION['carrinho'][$id_prod]=1;
+		}
 		
-		// será adicionado um produto ao carrinho
-		$_SESSION['carrinho'][$id_prod]=1;
-	}
-	
-	// caso contrario, se ela estiver setada, adicione novos produtos
-	else {
-		  $_SESSION['carrinho'][$id_prod]+=1;
+		// caso contrario, se ela estiver setada, adicione novos produtos
+		else {
+			$_SESSION['carrinho'][$id_prod]+=1;
 
-	}
-		// incluindo o arquivo 'mostraCarrinho.php'
-		include 'mostraCarrinho.php';
-		
-	} else {
-		
-		//mostrando o carrinho	vazio	
-		include 'mostraCarrinho.php';
-		
-		
-	}	
+		}
+			// incluindo o arquivo 'mostraCarrinho.php'
+			include 'mostraCarrinho.php';
+			
+		} else {	
+			//mostrando o carrinho	vazio	
+			include 'mostraCarrinho.php';	
+		}	
 	
 	?>
 	
@@ -71,15 +65,18 @@
 	
 	
 	<div class="row text-center" style="margin-top: 15px;">
-		<a href="index.php"><button class="btn btn-lg btn-primary">Continuar Comprando</button></a>
+
+		<a href="index.php">
+			<button class="btn btn-lg btn-primary">Continuar Comprando</button>
+		</a>
 
 		<?php if(count($_SESSION['carrinho']) > 0) { ?>
-				<a href="finalizarCompra.php"><button class="btn btn-lg btn-success">Finalizar Compra</button></a>
+				<a href="finalizarCompra.php">
+					<button class="btn btn-lg btn-success">Finalizar Compra</button>
+				</a>
 		<?php } ?>
-		</div>
-
+	</div>
 	
-</div>	
 	<?php include 'rodape.html'; ?>
 	
 </body>

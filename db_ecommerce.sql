@@ -147,8 +147,19 @@ select * from tbl_produtos;
     insert into tbl_venda(no_ticket, id_cliente, id_produto, qt_itens, vl_item, dt_venda)
     values(12345678910, 2, 2, 2, 52.90, '2023-10-01');
     
-    select * from tbl_venda;
+    create view vwVenda
+    as select
+		tbl_venda.no_ticket,
+		tbl_venda.id_cliente,
+		tbl_venda.dt_venda,
+		tbl_venda.qt_itens,
+		tbl_venda.vl_total_item,
+        tbl_produtos.nm_produto,
+        tbl_produtos.ds_capa
+	from tbl_venda inner join tbl_produtos 
+    on tbl_venda.id_produto = tbl_produtos.id_produto;
     
     drop table tbl_venda;
 
-
+select * from vwvenda;
+drop vwvenda;

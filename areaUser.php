@@ -16,11 +16,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	<style>
-	
+
 	.navbar{
 		margin-bottom: 0;
 	}
-	
+	.table{
+		margin-top: 10rem;
+		margin-bottom: 10rem;
+	}
 	
 	</style>
 	
@@ -44,32 +47,34 @@
 
 	?>
 	
-<div class="container-fluid">
-	
-	
-	<div class="row" style="margin-top: 15px;">
-		
-		<div class="col-sm-1 col-sm-offset-1"> Código da Compra </div>
-		<div class="col-sm-2"> Produto </div>
-		<div class="col-sm-5"> Unidades </div>
-		<div class="col-sm-1"> Data da Compra </div>
-		<div class="col-sm-2"> Preço </div>
-				
-	</div>		
+	<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Itens</th>
+      <th scope="col">Código da Compra</th>
+      <th scope="col">Data da Compra</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
 
-    <?php while($exibevenda = $consultaVenda->fetch(PDO::FETCH_ASSOC)) { ?>
-	
-        <div class="row" style="margin-top: 15px;">
-            <div class="col-sm-1 col-sm-offset-1"> <?php echo $exibevenda['no_ticket']; ?></div>
-            <div class="col-sm-2"> <?php echo $exibevenda['nm_produto']; ?> </div>
-            <div class="col-sm-5"> <?php echo $exibevenda['qt_itens']; ?> </div>
-            <div class="col-sm-1"> <?php echo $exibevenda['dt_venda']; ?> </div>
-            <div class="col-sm-2"><?php echo $exibevenda['vl_total_item']; ?> </div>	
-        </div>	
-	
-    <?php } ?>
+  <?php while($exibevenda = $consultaVenda->fetch(PDO::FETCH_ASSOC)) { ?>
+    <tr>
+      <th scope="row"><img src="imagens/<?php echo $exibevenda['ds_capa']?>" style="width: 4.5vw"></th>
+      <td> <?php echo $exibevenda['nm_produto']; ?> </td>
+      <td> <?php echo $exibevenda['qt_itens']; ?> </td>
+      <td><?php echo $exibevenda['no_ticket']; ?></td>
+      <td> <?php echo date ('d/m/Y', strtotime( $exibevenda['dt_venda'])); ?> </td>
+      <td> <?php echo number_format($exibevenda['vl_total_item'],2,',','.'); ?></td>
+    </tr>
 
-</div>
+	<?php } ?>
+
+
+  </tbody>
+</table>
 	
 	<?php
 	

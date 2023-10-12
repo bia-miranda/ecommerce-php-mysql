@@ -5,8 +5,16 @@
       }
         .navbar{
             margin-bottom: 0;
-            padding: 1rem;
+            padding: 2rem;
             border-radius: 0; 
+            background-color: black;
+           
+        }
+        a{
+          color: red;
+        }
+        .navbar img{
+          margin-top: -1.2rem
         }
     </style>
 </head>
@@ -21,7 +29,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php">NerdFigure</a>
+      <a class="navbar-brand" href="index.php"><img src="imagens/logo.png"></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

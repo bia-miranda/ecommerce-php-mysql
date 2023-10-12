@@ -49,8 +49,9 @@
 						<input name="txtsenha" type="password" class="form-control" required id="senha">
 				</div>
 				
+				<a href="formusuario.php">Esqueci minha senha</a>	<br><br>
 							
-				<button type="submit" class="btn btn-lg btn-default"><span> Entrar</span></button>
+				<button type="submit" class="btn btn-lg btn-default"> Entrar</button>
 				
 				<a href="formusuario.php">
 					<button type="button" class="btn btn-lg btn-link">Ainda não sou cadastrado</button>
