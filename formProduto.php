@@ -86,7 +86,7 @@
 					
 					<div class="form-group">
                         <label for="sltlanc">Lançamento?</label>
-                        <select class="form-control" name="sltlanc">
+                        <select class="form-control" name="sltlanc" required>
                             <option value="">Selecione</option>
                             <option value="S">Sim</option>
                             <option value="N">Não</option>					  

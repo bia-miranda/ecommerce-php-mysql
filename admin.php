@@ -22,9 +22,9 @@
 		
 		include 'conexao.php';	
 		include 'nav.php';
+		include 'cabecalho.html';
 	
 	?>
-	
 	
 	<div class="container-fluid">
 		<div class="row">
@@ -48,15 +48,18 @@
 
 				<br>
 				
+				<a href="vendas.php">
 				<button type="submit" class="btn btn-block btn-lg btn-success">
 					Vendas
 				</button>
-						
+				</a>	
 				<br>
 
+				<a href="sair.php">
 				<button type="submit" class="btn btn-block btn-lg btn-danger">
 					Sair da área administrativa
 				</button>
+	</a>
 				
 			</div>
 		</div>

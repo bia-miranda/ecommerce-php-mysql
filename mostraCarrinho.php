@@ -55,8 +55,8 @@
 		</button>
 			</a>
 		</div> 
-				
 	</div>	
+</div>	
 	
 	
 	<?php } ?>

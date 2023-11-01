@@ -54,7 +54,6 @@
         <button type="submit" class="btn btn-default">Pesquisar</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Contato</a></li>
         <li><a href="carrinho.php">Carrinho</a></li>
 
         <?php if(empty($_SESSION['id'])) { ?>

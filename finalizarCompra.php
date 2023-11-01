@@ -3,10 +3,12 @@
     session_start();  
 
     include 'conexao.php';
+  
 
     $data = date('Y-m-d');  // variavel que vai pegar a data do dia (ano mes dia -padrão do mysql)
     $ticket = uniqid();  // gerando um ticket com função uniqid(); 	gera um id unico    
     $id_user = $_SESSION['id'];  //recebendo o codigo do usuário logado, nesta pagina o usuario ja esta logado pois, em do carrinho de compra
+
 
     //// criando um loop para sessão carrinho q recebe o $cd e a quantidade
     foreach ($_SESSION['carrinho'] as $id => $qnt)  {
@@ -19,5 +21,4 @@
     }
 
     include 'fim.php';
-
 ?>

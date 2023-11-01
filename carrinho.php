@@ -23,6 +23,7 @@
 		
 		include 'conexao.php';	// incluindo arquivo de conexão
 		include 'nav.php'; // incluindo arquivo barra de navegação
+		include 'cabecalho.html'; // incluindo arquivo barra de navegação
 		
 		// verificando se o codigo do produto NÃO está vazio
 		if (!empty($_GET['id'])) {

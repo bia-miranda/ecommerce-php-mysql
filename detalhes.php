@@ -17,6 +17,9 @@
         h2{
             color: green;
         }
+        .details{
+            margin-left: 25rem;
+        }
 	</style>
 </head>
 
@@ -38,7 +41,7 @@
 	?>
 	
 <div class="container-fluid">
-	<div class="row">		
+	<div class="row details">		
 		<div class="col-md-4 col-sm-offset-1">
 			 <img src="imagens/<?php echo $exibir['ds_capa']; ?>" class="img-responsive" style="width:100%;">
 		</div>
@@ -46,8 +49,8 @@
  		 <div class="info col-sm-7 position-absolute top-50 start-50 translate-middle">
             <h1><b><?php echo $exibir['nm_produto']; ?></b></h1>
 
-                <h5>Frete grátis para todo o Brasil.</h5>
-                <h5><b>Estoque: </b><?php echo $exibir['qt_estoque']?></h5>] <hr/>
+                <h4>Frete grátis para todo o Brasil.</h4>
+                <h5><b>Estoque: </b><?php echo $exibir['qt_estoque']?></h5> <hr/>
                 
                 <h2><b> R$ <?php echo number_format($exibir['vl_preco'],2,',','.');?> </b></h2>
                  
@@ -58,9 +61,12 @@
                 <h3>Detalhes do Produto</h3>
 
                 <h4><?php echo $exibir['ds_prod']; ?></h4>
-		</div>		
+		</div>	
+    </div>	
 </div>
 	
+
+
 	<?php include 'rodape.html';?>
 	
 </body>

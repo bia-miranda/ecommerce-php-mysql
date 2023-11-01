@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Loja</title>
+    <title>NerdFigure</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -39,7 +39,7 @@
            <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){ ?>
             <div class="col-sm-3">
               <img src="imagens/<?php echo $exibe['ds_capa']?>" class="img-responsive" style="width: 100%">
-              <div><h3><?php echo $exibe['nm_produto'];?></h3></div>
+              <div><h3><?php echo mb_strimwidth($exibe['nm_produto'], 0, 30, '...');?></h3></div>
               <div><h4>R$ <?php echo number_format($exibe['vl_preco'],2,',','.');?></h4></div>
 
               <div class="text-center">

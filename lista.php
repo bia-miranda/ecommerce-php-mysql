@@ -42,7 +42,6 @@
 	
 	include 'conexao.php';	
 	include 'nav.php';
-	include 'cabecalho.html';
 	
 	
 	$consulta = $con->query("SELECT * from tbl_produtos");
@@ -57,7 +56,7 @@
 	
 	?>
 	
-	
+	<br>
 	<div class="row" style="margin-top: 15px;">
 		
 		<div class="col-sm-1 col-sm-offset-1"><img src="imagens/<?php echo $exibe['ds_capa']; ?>" class="img-responsive"></div>
